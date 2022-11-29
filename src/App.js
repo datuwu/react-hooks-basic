@@ -1,22 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import Nav from './views/Nav';
 
-function App() {
+const App = () => {
+  let name = "uwu"
+  let number = 2022
+  let obj = { name: "uwwU", number: 69 }
+  let link = 'https://www.youtube.com/watch?v=Y9gTouaZJ5s&list=PLncHg6Kn2JT4xzJyhXfmJ53dzwVbq-S_E&index=9'
   return (
     <div className="App">
+      <Nav />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Hello World and hello {name} at {number}</h1>
+        <a href={link} target='_blank'>Visit this link</a>
       </header>
     </div>
   );
