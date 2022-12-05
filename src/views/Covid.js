@@ -4,9 +4,10 @@ import moment from 'moment/moment';
 
 const Covid = () => {
     const [dataCovid, setDataCovid] = useState([]);
-    const [loading, setLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
+    const [isError, setIsError] = useState(false)
     useEffect(async () => {
-        setTimeout(async () => {
+        try {
             let res = await axios.get('https://api.covid19api.com/country/vietnam?from=2022-03-01T00:00:00Z&to=2022-04-02T00:00:00Z')
             console.log('>>> check res ', res.data);
             let data = res && res.data ? res.data : []
@@ -19,8 +20,14 @@ const Covid = () => {
 
             data = data.reverse()
             setDataCovid(data)
-            setLoading(false)
-        }, 3000);
+            setIsLoading(false)
+            setIsError(false)
+        } catch (e) {
+            setIsError(true)
+            setIsLoading(false)
+            console.log('>>> check error', e);
+        }
+
 
     }, [])
     return (
@@ -36,7 +43,7 @@ const Covid = () => {
             </thead>
             <tbody>
                 {
-                    !loading && dataCovid && dataCovid.length > 0 &&
+                    !isError && !isLoading && dataCovid && dataCovid.length > 0 &&
                     dataCovid.map(item => {
                         return (
                             <tr key={item.ID}>
@@ -50,7 +57,8 @@ const Covid = () => {
                     })
                 }
 
-                {loading && <tr ><td colspan='5' style={{ 'textAlign': 'center' }}>Loading...</td></tr>}
+                {isLoading && <tr ><td colSpan='5' style={{ 'textAlign': 'center' }}>Loading...</td></tr>}
+                {isError && <tr ><td colSpan='5' style={{ 'textAlign': 'center' }}>Something wrong...</td></tr>}
             </tbody>
         </table >
     )
