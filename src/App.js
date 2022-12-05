@@ -1,12 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
+import { useState } from 'react';
 
 const App = () => {
-  let name = "uwu"
+  let [name, setName] = useState('UwU')
+  const [address, setAddress] = useState('')
 
   const handleClickEvent = (event) => {
-    console.log(event, event.target);
+    setName(address)
+    console.log(event, name);
+  }
+
+  const handleOnChangeInput = (event) => {
+    console.log(event.target.value);
+    setAddress(event.target.value)
   }
   return (
     <div className="App">
@@ -14,8 +22,8 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hello World and hello {name}</h1>
-        <input type={'text'} value={'Eric'} onClick={(event) => { handleClickEvent(event) }} />
-        <button onClick={(event) => { handleClickEvent(event) }}>Visit this link</button>
+        <input type={'text'} value={address} onChange={(event) => { handleOnChangeInput(event) }} />
+        <button onClick={(event) => { handleClickEvent(event) }}>Click me</button>
       </header>
     </div>
   );
