@@ -8,9 +8,10 @@ const App = () => {
   let [name, setName] = useState('UwU')
   const [address, setAddress] = useState('')
   const [todos, setTodos] = useState([
-    { id: 'todo1', title: 'Learn React' },
-    { id: 'todo2', title: 'Learn JS' },
-    { id: 'todo3', title: 'Learn C#' },
+    { id: 'todo1', title: 'Learn React', type: 'Dat' },
+    { id: 'todo2', title: 'Learn JS', type: 'Dat' },
+    { id: 'todo3', title: 'Learn C#', type: 'Dat OwO' },
+    { id: 'todo4', title: 'Sleep', type: 'Dat OwO' },
   ])
 
   const handleEventClick = (event) => {
@@ -28,14 +29,18 @@ const App = () => {
   }
   return (
     <div className="App">
-      <Nav />
       <header className="App-header">
+        <Nav />
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hello World and hello {name}</h1>
 
         <Todo
           myData={todos}
           title={"All todos"}
+        />
+        <Todo
+          myData={todos.filter(todo => todo.type === 'Dat')}
+          title={`Dat's Todos`}
         />
         <input type={'text'} value={address} onChange={(event) => { handleOnChangeInput(event) }} />
         <button onClick={(event) => { handleEventClick(event) }}>Click me</button>
