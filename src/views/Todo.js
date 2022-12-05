@@ -10,7 +10,6 @@ const Todo = (props) => {
         <div className='todos-container'>
             <div className="title">{title}</div>
             {todos.map(todo => {
-                console.log(todo);
                 return (
                     <div key={todo.id}>
                         <li className='todo-child' key={todo.id}>{todo.title}

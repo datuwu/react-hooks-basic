@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Todo from './views/Todo';
 
 const App = () => {
@@ -14,6 +14,10 @@ const App = () => {
     { id: 'todo4', title: 'Sleep', type: 'Dat OwO' },
   ])
 
+  useEffect(() => {
+    console.log('run use effect');
+  })
+
   const handleEventClick = (event) => {
     if (!address) {
       alert('Empty input')
@@ -21,7 +25,6 @@ const App = () => {
     }
     let newTodo = { id: (Math.floor(Math.random() * 1000) + 1), title: address }
     setTodos([...todos, newTodo])
-    console.log(event, name);
   }
 
   const handleOnChangeInput = (event) => {
