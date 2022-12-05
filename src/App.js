@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './views/Nav';
 import { useState, useEffect } from 'react';
 import Todo from './views/Todo';
+import Covid from './views/Covid';
 
 const App = () => {
   let [name, setName] = useState('UwU')
@@ -46,7 +47,8 @@ const App = () => {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hello World and hello {name}</h1>
 
-        <Todo
+        <Covid />
+        {/* <Todo
           todos={todos}
           title={"All todos"}
           deleteTodoData={deleteTodoData}
@@ -57,7 +59,8 @@ const App = () => {
           deleteTodoData={deleteTodoData}
         />
         <input type={'text'} value={address} onChange={(event) => { handleOnChangeInput(event) }} />
-        <button onClick={(event) => { handleEventClick(event) }}>Click me</button>
+        <button onClick={(event) => { handleEventClick(event) }}>Click me</button> */}
+
       </header>
     </div>
   );
