@@ -15,8 +15,11 @@ const App = () => {
   ])
 
   useEffect(() => {
-    console.log('run use effect');
-  })
+    console.log('run address use effect');
+  }, [address])
+  useEffect(() => {
+    console.log('run todos use effect');
+  }, [todos])
 
   const handleEventClick = (event) => {
     if (!address) {
