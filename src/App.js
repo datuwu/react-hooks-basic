@@ -19,13 +19,19 @@ const App = () => {
       alert('Empty input')
       return
     }
-    let newTodo = { id: Math.random(), title: address }
+    let newTodo = { id: (Math.floor(Math.random() * 1000) + 1), title: address }
     setTodos([...todos, newTodo])
     console.log(event, name);
   }
 
   const handleOnChangeInput = (event) => {
     setAddress(event.target.value)
+  }
+
+  const deleteTodoData = (id) => {
+    let currentTodo = todos
+    currentTodo = currentTodo.filter(todo => todo.id !== id)
+    setTodos(currentTodo)
   }
   return (
     <div className="App">
@@ -35,12 +41,14 @@ const App = () => {
         <h1>Hello World and hello {name}</h1>
 
         <Todo
-          myData={todos}
+          todos={todos}
           title={"All todos"}
+          deleteTodoData={deleteTodoData}
         />
         <Todo
-          myData={todos.filter(todo => todo.type === 'Dat')}
+          todos={todos.filter(todo => todo.type === 'Dat')}
           title={`Dat's Todos`}
+          deleteTodoData={deleteTodoData}
         />
         <input type={'text'} value={address} onChange={(event) => { handleOnChangeInput(event) }} />
         <button onClick={(event) => { handleEventClick(event) }}>Click me</button>
