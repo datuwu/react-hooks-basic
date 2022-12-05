@@ -1,35 +1,9 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import moment from 'moment/moment';
-
+import useFetch from '../customize/fetch';
 const Covid = () => {
-    const [dataCovid, setDataCovid] = useState([]);
-    const [isLoading, setIsLoading] = useState(true)
-    const [isError, setIsError] = useState(false)
-    useEffect(async () => {
-        try {
-            let res = await axios.get('https://api.covid19api.com/country/vietnam?from=2022-03-01T00:00:00Z&to=2022-04-02T00:00:00Z')
-            console.log('>>> check res ', res.data);
-            let data = res && res.data ? res.data : []
-            if (data && data.length > 0) {
-                data.map(item => {
-                    item.Date = moment(item.Date).format('DD/MM/YYYY')
-                })
-            }
-            console.log('>>> check set data: ', data);
+    const url = 'https://api.covid19api.com/country/vietnam?from=2022-03-01T00:00:00Z&to=2022-04-02T00:00:00Z'
 
-            data = data.reverse()
-            setDataCovid(data)
-            setIsLoading(false)
-            setIsError(false)
-        } catch (e) {
-            setIsError(true)
-            setIsLoading(false)
-            console.log('>>> check error', e);
-        }
-
-
-    }, [])
+    const { data: dataCovid, isLoading, isError } = useFetch(url)
     return (
         <table>
             <thead>
