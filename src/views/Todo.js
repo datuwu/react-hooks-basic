@@ -1,6 +1,6 @@
 const Todo = (props) => {
     //const todos = props.todos
-    const { todos, title, deleteTodoData } = props
+    const { todos, title, deleteTodoData, handleOnChangeInput, handleEventClick, address } = props
 
     const handleDelete = (id) => {
         deleteTodoData(id)
@@ -18,6 +18,8 @@ const Todo = (props) => {
                 )
             })}
             <hr />
+            <input type={'text'} value={address} onChange={(event) => { handleOnChangeInput(event) }} />
+            <button onClick={(event) => { handleEventClick(event) }}>Click me</button>
         </div>
     )
 }

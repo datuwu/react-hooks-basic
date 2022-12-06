@@ -30,7 +30,7 @@ const useFetch = (url) => {
             console.log('>>> check error', e);
         }
 
-    }, [])
+    }, [url])
 
     return {
         data, isLoading, isError

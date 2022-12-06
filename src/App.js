@@ -6,6 +6,13 @@ import Todo from './views/Todo';
 import Covid from './views/Covid';
 import { Countdown, NewCountdown } from './views/Countdown';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
+
 const App = () => {
   let [name, setName] = useState('UwU')
   const [address, setAddress] = useState('')
@@ -46,29 +53,39 @@ const App = () => {
     alert('Times up')
   }
   return (
-    <div className="App">
-      <header className="App-header">
-        <Nav />
-        <img src={logo} className="App-logo" alt="logo" />
-        <Countdown onTimesUp={onTimesUp} />
-        <span>------------------------</span>
-        <NewCountdown onTimesUp={onTimesUp} />
-        <Covid />
-        {/* <Todo
-          todos={todos}
-          title={"All todos"}
-          deleteTodoData={deleteTodoData}
-        />
-        <Todo
-          todos={todos.filter(todo => todo.type === 'Dat')}
-          title={`Dat's Todos`}
-          deleteTodoData={deleteTodoData}
-        />
-        <input type={'text'} value={address} onChange={(event) => { handleOnChangeInput(event) }} />
-        <button onClick={(event) => { handleEventClick(event) }}>Click me</button> */}
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <Nav />
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
 
-      </header>
-    </div>
+        <Switch>
+          <Route path="/" exact>
+            <Covid />
+          </Route>
+          <Route path="/timer">
+            <Countdown onTimesUp={onTimesUp} />
+            <span>------------------------</span>
+            <NewCountdown onTimesUp={onTimesUp} />
+          </Route>
+          <Route path="/todo">
+            <Todo
+              address={address}
+              todos={todos}
+              title={"All todos"}
+              deleteTodoData={deleteTodoData}
+              handleOnChangeInput={handleOnChangeInput}
+              handleEventClick={handleEventClick}
+            />
+
+          </Route>
+          <Route path="/secret">
+
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
