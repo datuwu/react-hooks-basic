@@ -9,10 +9,6 @@ const Covid = () => {
     const priorDay = moment().startOf(`day`).subtract(30, `days`).toISOString(true)
     const url = `https://api.covid19api.com/country/vietnam?from=${priorDay}&to=${today}`
 
-    console.log(today);
-    console.log(priorDay);
-    console.log(url);
-
     const { data: dataCovid, isLoading, isError } = useFetch(url)
     return (
         <div style={{ background: '#282c34', color: 'white' }}>

@@ -4,6 +4,11 @@ class Countdown extends React.Component {
         count: 10
     }
 
+    componentWillUnmount() {
+        if (this.timer) {
+            clearInterval(this.timer)
+        }
+    }
 
     componentDidMount() {
         this.timer = setInterval(() => {
@@ -41,7 +46,6 @@ const NewCountdown = (props) => {
             console.log('run me');
             setCount(count - 1)
         }, 1000);
-
     }, [count])
     return (
         <div>{count} hooks</div>
