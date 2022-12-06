@@ -4,6 +4,7 @@ import Nav from './views/Nav';
 import { useState, useEffect } from 'react';
 import Todo from './views/Todo';
 import Covid from './views/Covid';
+import { Countdown, NewCountdown } from './views/Countdown';
 
 const App = () => {
   let [name, setName] = useState('UwU')
@@ -40,13 +41,18 @@ const App = () => {
     currentTodo = currentTodo.filter(todo => todo.id !== id)
     setTodos(currentTodo)
   }
+
+  const onTimesUp = () => {
+    alert('Times up')
+  }
   return (
     <div className="App">
       <header className="App-header">
         <Nav />
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hello World and hello {name}</h1>
-
+        <Countdown onTimesUp={onTimesUp} />
+        <span>------------------------</span>
+        <NewCountdown onTimesUp={onTimesUp} />
         <Covid />
         {/* <Todo
           todos={todos}
