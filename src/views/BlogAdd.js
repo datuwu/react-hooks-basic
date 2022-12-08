@@ -5,7 +5,16 @@ const BlogAdd = () => {
     const [content, setContent] = useState('')
 
     const handleSubmitButton = () => {
-        console.log('checkdatastate ', title, content);
+        if (!title) {
+            alert('empty title')
+            return
+        }
+        if (!content) {
+            alert('empty content')
+            return
+        }
+
+        console.log('check data before send ', title, content);
     }
 
     return (
