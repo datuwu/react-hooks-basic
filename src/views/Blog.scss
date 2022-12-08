@@ -3,14 +3,21 @@
     flex-direction: row;
     gap: 10px;
     flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 30px;
 
     .single-blog {
         border: 1px solid gray;
         border-radius: 3px;
         padding: 10px;
         margin: 0 10px;
-        max-width: 400px;
+        width: 400px;
         text-align: justify !important;
+
+        justify-content: space-between;
+        flex-direction: column;
+        display: flex;
+        min-height: 250px;
 
         .title {
             padding: 10px 0;
@@ -20,6 +27,16 @@
         }
 
         .content {}
+
+        .close-btn {
+            display: block;
+            float: right;
+        }
+
+        .button-holder {
+            justify-content: center;
+            display: flex;
+        }
     }
 }
 
