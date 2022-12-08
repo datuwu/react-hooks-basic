@@ -1,11 +1,19 @@
 
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 
 
 const BlogDetail = () => {
     let { id } = useParams()
+    const history = useHistory()
+    const handleBackData = () => {
+        history.push('/blog');
+    }
     return (
-        <h1>Blog Detail {id}</h1>
+        <>
+            <div><span onClick={() => handleBackData()}>&lt;-- Back</span></div>
+            <h1>Blog Detail {id}</h1>
+        </>
+
     )
 }
 

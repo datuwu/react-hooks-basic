@@ -16,7 +16,7 @@ const Blog = () => {
         <>
             <h1>Hello blog</h1>
             <div className="blogs-container">
-                {isLoading && <h2>Loading....</h2>}
+                {isLoading && <div style={{ textAlign: 'center !important', width: '100%' }} >Loading....</div>}
                 {newData && newData.length > 0 && newData.map(item => {
                     return (
                         <div className="single-blog" key={item.id}>
