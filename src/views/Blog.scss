@@ -33,3 +33,32 @@
         padding-top: 10px;
     }
 }
+
+.btn-add-new {
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.add-new-container {
+    max-width: 400px;
+    border: 1px solid gray;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: left;
+
+    .title-add-new {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .inputs-data {
+        padding: 5px;
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        margin-left: 10px;
+    }
+}

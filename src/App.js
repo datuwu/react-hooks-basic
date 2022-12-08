@@ -7,6 +7,7 @@ import Covid from './views/Covid';
 import { Countdown, NewCountdown } from './views/Countdown';
 import Blog from './views/Blog';
 import BlogDetail from './views/BlogDetail'
+import BlogAdd from './views/BlogAdd.js';
 
 import {
   BrowserRouter as Router,
@@ -87,6 +88,9 @@ const App = () => {
           </Route>
           <Route path="/blog/:id">
             <BlogDetail />
+          </Route>
+          <Route path="/add-new-blog">
+            <BlogAdd />
           </Route>
           <Route path="/secret">
 

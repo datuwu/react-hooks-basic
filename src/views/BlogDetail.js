@@ -18,7 +18,7 @@ const BlogDetail = () => {
         <>
 
 
-            <div><span onClick={() => handleBackData()}>&lt;-- Back</span></div>
+            <div><button onClick={() => handleBackData()}>&lt;-- Back</button></div>
 
             {isLoading && <div style={{ textAlign: 'center !important', width: '100%' }} >Loading....</div>}
             {!isLoading && blogDetailData &&
