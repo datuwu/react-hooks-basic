@@ -9,9 +9,10 @@ const Covid = () => {
     const priorDay = moment().startOf(`day`).subtract(30, `days`).toISOString(true)
     const url = `https://api.covid19api.com/country/vietnam?from=${priorDay}&to=${today}`
 
-    const { data: dataCovid, isLoading, isError } = useFetch(url)
+
+    const { data: dataCovid, isLoading, isError } = useFetch(url, true)
     return (
-        <div style={{ background: '#282c34', color: 'white' }}>
+        <>
             <h3>Covid tracking in Vietnam</h3>
             <table>
                 <thead>
@@ -43,7 +44,7 @@ const Covid = () => {
                     {isError && <tr ><td colSpan='5' style={{ 'textAlign': 'center' }}>Something wrong...</td></tr>}
                 </tbody>
             </table >
-        </div >
+        </>
     )
 }
 

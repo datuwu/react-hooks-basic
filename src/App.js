@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import Todo from './views/Todo';
 import Covid from './views/Covid';
 import { Countdown, NewCountdown } from './views/Countdown';
+import Blog from './views/Blog';
+import BlogDetail from './views/BlogDetail'
 
 import {
   BrowserRouter as Router,
@@ -23,12 +25,12 @@ const App = () => {
     { id: 'todo4', title: 'Sleep', type: 'Dat OwO' },
   ])
 
-  useEffect(() => {
-    console.log('run address use effect');
-  }, [address])
-  useEffect(() => {
-    console.log('run todos use effect');
-  }, [todos])
+  // useEffect(() => {
+  //   console.log('run address use effect');
+  // }, [address])
+  // useEffect(() => {
+  //   console.log('run todos use effect');
+  // }, [todos])
 
   const handleEventClick = (event) => {
     if (!address) {
@@ -79,6 +81,12 @@ const App = () => {
               handleEventClick={handleEventClick}
             />
 
+          </Route>
+          <Route path="/blog" exact>
+            <Blog />
+          </Route>
+          <Route path="/blog/:id">
+            <BlogDetail />
           </Route>
           <Route path="/secret">
 

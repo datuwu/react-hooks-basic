@@ -1,0 +1,24 @@
+.blogs-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .single-blog {
+        border: 1px solid gray;
+        border-radius: 3px;
+        padding: 10px;
+        margin: 0 10px;
+        max-width: 400px;
+
+        text-align: left !important;
+
+        .title {
+            padding: 10px 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .content {}
+    }
+}
