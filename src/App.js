@@ -15,6 +15,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import NotFound from './views/404NotFound';
 
 const App = () => {
   let [name, setName] = useState('UwU')
@@ -94,6 +95,9 @@ const App = () => {
           </Route>
           <Route path="/secret">
 
+          </Route>
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       </div>
